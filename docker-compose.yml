@@ -1,0 +1,12 @@
+version: '3'
+services:
+  jupyter:
+    image: quay.dc.xing.com/jobs-integration/ji-ml-jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    # see https://jupyter-docker-stacks.readthedocs.io/en/latest/using/common.html#notebook-options to define password
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password='' 
+    ports:
+      - "127.0.0.1:8888:8888"
+    volumes:
+      - .:/home/jovyan/work
